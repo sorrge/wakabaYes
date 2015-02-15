@@ -3,6 +3,11 @@ This is a Java program which recognizes standard CAPTCHA used in Wakaba. Wakaba 
 
 Image boards that use Wakaba with the default CAPTCHA include http://iichan.hk/ , http://www.wakachan.org/ and a number of less popular ones.
 
+# Example CAPTCHAs
+![easy](https://raw.githubusercontent.com/sorrge/wakabaYes/master/examples/easy/plodgeish+4-13+18-23+27-35+40-48+52-62+67-76+81-85+88-96+100-107.gif)     
+![hard](https://raw.githubusercontent.com/sorrge/wakabaYes/master/examples/hard/chowtly+4-13+18-27+32-43+47-55+57-63+65-76+80-87.gif)     
+![from iichan.hk](https://raw.githubusercontent.com/sorrge/wakabaYes/master/examples/iichan/jeiming.gif)
+
 # How it works
 First, the image is segmented using connected components and a number of hacks to split the characters which stick together. This is the weakest part of the program and it causes most errors.
 Then each segmented character is fed to a LeNet5 (http://yann.lecun.com/exdb/lenet/ ) classifier. The classifier is pre-trained; I do not provide the code and the data to train it. It outputs a probability distribution over all letters for the given character image.
